@@ -1,8 +1,15 @@
-function SearchBar() {
+function SearchBar(props) {
     return (
-        <form className={'flex flex-col gap-6'}>
+        <form className={'flex flex-col gap-6'} onSubmit={props.handleSubmit}>
             <label className={'flex items-center input input-bordered input-accent input-lg min-h-16'}>
-                <input type={'text'} className={'grow'} placeholder={'Search'}/>
+                <input
+                    type={'text'}
+                    className={'grow'}
+                    placeholder={'Search song'}
+                    value={props.searchValue}
+                    onChange={props.handleChange}
+                />
+
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
                      className="w-6 h-6 opacity-70">
                     <path fillRule="evenodd"

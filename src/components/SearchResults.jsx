@@ -1,6 +1,19 @@
-function SearchResults() {
+// import {useState} from "react";
+import Track from "./Track.jsx";
+
+function SearchResults({searchResult}) {
+
     return (
-        <h2>SearchResults</h2>
+        <ul>
+            {searchResult.map((track) => (
+                <Track
+                    key={track.id}
+                    name={track.name}
+                    artist={track.artist}
+                    album={track.album}
+                />)
+            )}
+        </ul>
     )
 }
 
