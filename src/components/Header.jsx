@@ -21,7 +21,7 @@ function Header() {
             <div className="dropdown dropdown-end">
                 <div tabIndex={0} role="button" className="btn btn-ghost rounded-btn text-lg">Menu</div>
                 <ul tabIndex={0}
-                    className="menu dropdown-content shadow bg-base-200 rounded-box w-52 text-base-content">
+                    className="menu dropdown-content shadow bg-base-100 rounded-box w-52 text-base-content">
                     <li><a>Settings</a></li>
                     <li><a>Main Page</a></li>
                 </ul>
