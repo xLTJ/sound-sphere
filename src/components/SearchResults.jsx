@@ -3,14 +3,15 @@ import Track from "./Track.jsx";
 
 function SearchResults({searchResult}) {
 
+    console.log(searchResult)
     return (
         <ul>
             {searchResult.map((track) => (
                 <Track
                     key={track.id}
                     name={track.name}
-                    artist={track.artist}
-                    album={track.album}
+                    artists={track.artists}
+                    img={track.album.images[ 0 ].url}
                 />)
             )}
         </ul>
