@@ -3,8 +3,9 @@ function Track(props) {
         artist.name
     ))
 
-    console.log(artists)
-
+    const handleAdd = () => {
+        props.addTrack(props)
+    }
 
     return (
         <div className="card lg:card-side bg-base-300 shadow-xl grow max-h-28 my-5 outline outline-2 rounded">
@@ -19,7 +20,7 @@ function Track(props) {
                 <span className={'line-clamp-1'}>{artists.join(', ')}</span>
             </div>
             <div className="card-actions justify-center flex-col mr-4">
-                <button className="btn btn-primary h-20 w-20 text-xl">Add</button>
+                <button className="btn btn-primary h-20 w-20 text-xl" onClick={handleAdd}>Add</button>
             </div>
         </div>
     )

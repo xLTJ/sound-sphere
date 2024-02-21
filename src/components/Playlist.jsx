@@ -1,6 +1,19 @@
-function Playlist() {
+import PlaylistTrack from "./PlaylistTrack.jsx";
+
+function Playlist({tracks, removeTrack}) {
     return (
-        <h2>Playlist</h2>
+        <ul>
+            {tracks.map((track) => (
+                <PlaylistTrack
+                    key={track.id}
+                    id={track.id}
+                    name={track.name}
+                    artists={track.artists}
+                    img={track.img}
+                    removeTrack={removeTrack}
+                />)
+            )}
+        </ul>
     )
 }
 
