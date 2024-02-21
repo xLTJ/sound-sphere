@@ -57,13 +57,19 @@ function App() {
                     </div>
                 </div>
                 <div className={'flex justify-center m-8 gap-8'}>
-                    <div className={'grow max-w-3xl gap-6 px-10 my-4 bg-base-200 rounded-box min-h-screen'}>
+                    <div
+                        className={'grow max-w-3xl gap-6 px-10 my-4 bg-base-200 rounded-box min-h-screen'}>
                         <h2 className={'text-5xl text-center my-10 font-bold'}>Results</h2>
-                        <SearchResults searchResult={searchResult} addTrack={addTrack}/>
+                        <div className={'max-h-[1000px] overflow-auto scrollbar-hide px-1 mb-16 pb-4'}>
+                            <SearchResults searchResult={searchResult} addTrack={addTrack}/>
+                        </div>
                     </div>
-                    <div className={'grow max-w-lg min-w-fit gap-6 px-10 my-4 bg-base-200 rounded-box min-h-screen'}>
+                    <div
+                        className={'grow max-w-lg min-w-fit gap-6 px-10 my-4 bg-base-200 rounded-box max-h-[850px]'}>
                         <h2 className={'text-5xl text-center my-10 font-bold'}>Playlist</h2>
-                        <Playlist tracks={playlistTracks} removeTrack={removeTrackFromPlaylist}/>
+                        <div className={'max-h-[600px] overflow-auto scrollbar-hide px-1 mb-16 pb-4'}>
+                            {<Playlist tracks={playlistTracks} removeTrack={removeTrackFromPlaylist}/>}
+                        </div>
                     </div>
                 </div>
             </main>
