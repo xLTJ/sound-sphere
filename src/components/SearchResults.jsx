@@ -12,6 +12,7 @@ function SearchResults({searchResult, addTrack}) {
                     artists={track.artists}
                     img={track.album.images[ 0 ].url}
                     addTrack={addTrack}
+                    uri={track.uri}
                 />)
             )}
         </ul>

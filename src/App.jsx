@@ -4,18 +4,20 @@ import SearchBar from "./components/SearchBar.jsx";
 import {useEffect, useState} from "react";
 import SearchResults from "./components/SearchResults.jsx";
 import Playlist from "./components/Playlist.jsx";
-import SpotifyApi from "./components/spotifyData.js";
+import SpotifyApi from "./components/spotifyApi.js";
 
 function App() {
     const [searchValue, setSearchValue] = useState('')
     const [searchResult, setSearchResult] = useState([])
     const [playlistTracks, setPlaylistTracks] = useState([])
+    const [userInfo, setUserInfo] = useState({})
 
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
         let code = urlParams.get('code');
-        if (code && !localStorage.getItem('access_token')) {
-            SpotifyApi.getToken(code)
+
+        if (localStorage.getItem('access_token') !== undefined && code) {
+            SpotifyApi.getToken(code, setUserInfo)
         }
     }, [])
 
@@ -64,13 +66,7 @@ function App() {
                             <SearchResults searchResult={searchResult} addTrack={addTrack}/>
                         </div>
                     </div>
-                    <div
-                        className={'grow max-w-lg min-w-fit gap-6 px-10 my-4 bg-base-200 rounded-box max-h-[850px]'}>
-                        <h2 className={'text-5xl text-center my-10 font-bold'}>Playlist</h2>
-                        <div className={'max-h-[600px] overflow-auto scrollbar-hide px-1 mb-16 pb-4'}>
-                            {<Playlist tracks={playlistTracks} removeTrack={removeTrackFromPlaylist}/>}
-                        </div>
-                    </div>
+                    {<Playlist tracks={playlistTracks} removeTrack={removeTrackFromPlaylist}/>}
                 </div>
             </main>
         </>

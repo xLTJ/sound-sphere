@@ -1,3 +1,5 @@
+import SpotifyApi from "./spotifyApi.js";
+
 function SearchBar(props) {
     return (
         <form className={'flex flex-col gap-6'} onSubmit={props.handleSubmit}>
@@ -18,7 +20,28 @@ function SearchBar(props) {
                 </svg>
             </label>
             <div>
-                <button type={'submit'} className={'btn btn-wide btn-info'}>Search</button>
+                <button
+                    type={'submit'}
+                    className={'btn btn-wide btn-info'}
+                    onClick={() => {
+                        const access_token = localStorage.getItem("access_token")
+                        if (access_token === 'undefined' || !access_token) {
+                            document.getElementById('not_logged_in_popup').showModal()
+                        }
+                    }}
+                >Search
+                </button>
+
+                <dialog id="not_logged_in_popup" className="modal">
+                    <div className="modal-box">
+                        <h3 className="font-bold text-lg">Not Logged In!</h3>
+                        <p className="py-4">Please log in to your spotify account to use this application</p>
+                        <div className="modal-action">
+                            <button className="btn btn-block btn-primary" onClick={SpotifyApi.requestToken}>Login
+                            </button>
+                        </div>
+                    </div>
+                </dialog>
             </div>
         </form>
     )

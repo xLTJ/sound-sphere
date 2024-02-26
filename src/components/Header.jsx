@@ -1,4 +1,4 @@
-import SpotifyApi from "./spotifyData.js";
+import SpotifyApi from "./spotifyApi.js";
 
 function Header() {
     return (
