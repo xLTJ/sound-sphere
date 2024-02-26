@@ -1,5 +1,5 @@
 const clientId = '6d3cff363c17438f8bbcdf9537bc16b3';
-const redirectUri = 'http://localhost:5173/';
+const redirectUri = 'https://lucilorate.me/sound-sphere/';
 const scope = 'user-read-private user-read-email playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public ugc-image-upload';
 const authUrl = new URL("https://accounts.spotify.com/authorize")
 

@@ -42,7 +42,8 @@ function Playlist({tracks, removeTrack}) {
                 </ul>
             </div>
             <div className={'flex'}>
-                <button className={'btn btn-wide btn-primary m-auto text-lg'} onClick={createPlaylist}>Save Playlist
+                <button className={'btn btn-wide btn-primary m-auto mb-10 text-lg'} onClick={createPlaylist}>Save
+                                                                                                             Playlist
                 </button>
             </div>
         </div>
